@@ -1,13 +1,14 @@
 import { createContext, useState } from 'react';
+import useLocalStorage from '../useLocalStorage';
 
 
 export const DataContext = createContext(null);
 
 const DataProvider = ({ children }) => {
     
-    const [html, setHtml] = useState('');
-    const [js, setJs] = useState('');
-    const [css, setCss] = useState('');
+    const [html, setHtml] = useLocalStorage('html','');
+    const [js, setJs] = useLocalStorage('js','');
+    const [css, setCss] = useLocalStorage('css','');
 
     return (
         <DataContext.Provider value={{
